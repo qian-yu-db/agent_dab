@@ -1,0 +1,18 @@
+resources:
+  jobs:
+    agent_deploy:
+      name: agent_deploy
+
+      environments:
+        - environment_key: serverless_env
+          spec:
+            client: "3"
+
+      tasks:
+        - task_key: agent_deploy
+          environment_key: serverless_env
+          notebook_task:
+            notebook_path: ../src/driver.py
+            base_parameters:
+              catalog: ${var.catalog}
+              schema: ${var.schema}

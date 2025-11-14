@@ -1,0 +1,15 @@
+databricks_configs:
+  catalog: my_catalog
+  schema: my_schema
+  mlflow_experiment_name: voya_rag_agent_poc
+  agent_name: agent_dab
+agent_configs:
+  python_exec_agent:
+    llm:
+      llm_endpoint_name: databricks-claude-3-7-sonnet # alt: databricks-claude-sonnet-4
+      llm_parameters:
+        max_tokens: 4000
+        temperature: 0.0
+    prompt: |
+      You are a helpful assistant. You have access to the following UC function tools:
+      - python_exec: Execute python code.
